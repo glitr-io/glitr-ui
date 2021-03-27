@@ -2,8 +2,8 @@
   "name": "glitr-ui",
   "version": "0.0.1",
   "description": "ui library",
-  "main": "index.js",
   "scripts": {
+    "webpack": "webpack",
     "test": "test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -27,7 +27,10 @@
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "babel-loader": "^8.2.2",
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack-cli": "^4.6.0"
   },
   "dependencies": {
     "react": "^17.0.2",
