@@ -11,6 +11,7 @@ const Button = ({
 }: ButtonProps) => {
     return (
         <button
+            className="test-button"
             onClick={onClick}
         >
             {children}

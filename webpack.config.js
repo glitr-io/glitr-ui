@@ -4,11 +4,10 @@ module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   output: {
-    filename: 'main.js',
+    filename: 'remoteEntry.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: "umd",
     library: "glitr-ui",
-    clean: true,
   },
   externals: {
     react: 'react',
@@ -23,14 +22,6 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
       },
     ],
   },
