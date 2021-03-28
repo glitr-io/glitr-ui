@@ -1,6 +1,9 @@
 const path = require('path');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const deps = require("./package.json").dependencies;
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   output: {
@@ -28,4 +31,21 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "glitr-ui",
+      filename: "remoteEntry.js",
+      shared: {
+        ...deps,
+        react: {
+          singleton: true,
+          requiredVersion: deps.react,
+        },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: deps["react-dom"],
+        },
+      },
+    }),
+  ]
 };
