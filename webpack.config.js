@@ -9,9 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "auto",
-  },
-  externals: {
-    react: 'react',
+    clean: true
   },
   module: {
     rules: [
@@ -35,7 +33,7 @@ module.exports = {
       library: { type: "var", name: "glitr_ui" },
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": './src/components/button/index.ts'
+        "./core": './src/index.ts'
       },
       shared: { react: { singleton: true }, "react-dom": { singleton: true } },
     }),
