@@ -1,6 +1,5 @@
 const path = require('path');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const deps = require("./package.json").dependencies;
 
 module.exports = {
   mode: 'production',
@@ -8,8 +7,8 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "auto",
-    clean: true
+    libraryTarget: "umd",
+    library: "glitr_ui",
   },
   module: {
     rules: [
@@ -30,12 +29,12 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "glitr_ui",
-      library: { type: "var", name: "glitr_ui" },
+      library: { type: "umd", name: "glitr_ui" },
       filename: "remoteEntry.js",
       exposes: {
-        "./core": './src/index.ts'
+        "./Button": './src/components/button/index.ts'
       },
-      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+      shared: { react: { singleton: true, eager: true }, "react-dom": { singleton: true, eager: true } },
     }),
   ]
 };
