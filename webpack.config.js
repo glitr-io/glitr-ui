@@ -7,10 +7,10 @@ module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   output: {
-    filename: 'remoteEntry.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: "umd",
-    library: "glitr-ui",
+    library: "glitr_ui",
   },
   externals: {
     react: 'react',
@@ -33,8 +33,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "glitr-ui",
+      name: "glitr_ui",
       filename: "remoteEntry.js",
+      exposes: {
+        core: './src/index.ts'
+      },
       shared: {
         ...deps,
         react: {
