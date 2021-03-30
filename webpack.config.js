@@ -32,7 +32,7 @@ module.exports = {
       library: { type: "umd", name: "glitr_ui" },
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": './src/components/button/index.ts'
+        "Button": './src/components/button/index.ts'
       },
       shared: { react: { singleton: true, eager: true }, "react-dom": { singleton: true, eager: true } },
     }),
