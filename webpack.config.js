@@ -7,8 +7,8 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: "umd",
-    library: "glitr_ui",
+    // libraryTarget: "umd",
+    // library: "glitr_ui",
   },
   module: {
     rules: [
@@ -29,10 +29,10 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "glitr_ui",
-      library: { type: "umd", name: "glitr_ui" },
+      // library: { type: "umd", name: "glitr_ui" },
       filename: "remoteEntry.js",
       exposes: {
-        "Button": './src/components/button/index.ts'
+        "./Button": './src/components/button/index.ts'
       },
       shared: { react: { singleton: true, eager: true }, "react-dom": { singleton: true, eager: true } },
     }),
