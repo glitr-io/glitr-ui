@@ -1,8 +1,8 @@
 const webpackConfig = require('./webpack.config');
 
 module.exports = {
-    ...webpackConfig,
     mode: 'development',
+    entry: webpackConfig.entry,
     output: {
         publicPath: "http://localhost:9001/",
     },
@@ -12,6 +12,8 @@ module.exports = {
         compress: true,
         port: 9001,
     },
+    module: webpackConfig.module,
+    resolve: webpackConfig.resolve,
     plugins: [
         ...webpackConfig.plugins,
         // new DashboardPlugin({
