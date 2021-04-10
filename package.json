@@ -1,5 +1,5 @@
 {
-  "name": "@glitr/glitr_ui",
+  "name": "@glitr-io/glitr_ui",
   "version": "0.0.1",
   "description": "ui library",
   "main": "dist/main.js",
