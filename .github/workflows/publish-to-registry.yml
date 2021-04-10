@@ -24,7 +24,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@glitr'
+      - run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+        env:
+            NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: npm install
       - run: npm run build
       - run: npm publish
