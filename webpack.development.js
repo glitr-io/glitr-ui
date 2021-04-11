@@ -4,6 +4,7 @@ module.exports = {
     mode: 'development',
     entry: webpackConfig.entry,
     output: {
+        ...webpackConfig.output,
         publicPath: "http://localhost:9001/",
     },
     devtool: 'inline-source-map',

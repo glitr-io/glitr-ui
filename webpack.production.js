@@ -4,9 +4,7 @@ const webpackConfig = require('./webpack.config');
 module.exports = {
   mode: 'production',
   entry: webpackConfig.entry,
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-  },
+  output: webpackConfig.output,
   module: webpackConfig.module,
   resolve: webpackConfig.resolve,
   plugins: [
